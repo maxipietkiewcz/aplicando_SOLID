@@ -17,4 +17,13 @@ router.get("/:id", async (req: Request, res: Response) => {
   res.json(vehicle);
 });
 
+router.put("/:id/descuento", async (req: Request, res: Response) => {
+  await vehicleController.applyDiscount(req, res);
+  const vehicleData = {
+    id: req.params.id.toString(),
+    descuento: req.body.discount.toString(),
+  };
+  res.json(vehicleData);
+});
+
 export default router;
