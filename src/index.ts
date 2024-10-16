@@ -1,19 +1,37 @@
 // src/index.ts
 import express from "express";
-import { VehicleController } from "./controllers/VehicleController";
-import { VehicleService } from "./services/VehicleService";
-import { MongoDBVehicleRepository } from "./repositories/MongoDBVehicleRepository";
+import clientRoutes from "./routes/clientRoutes";
+import vehicleRoutes from "./routes/vehicleRoutes";
 
-const app = express();
-app.use(express.json());
+class Server {
+  private app: express.Application;
+  private readonly PORT: number = 3000;
 
-const vehicleController = new VehicleController(
-  new VehicleService(new MongoDBVehicleRepository())
-);
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
+  }
 
-app.post("/vehicles", vehicleController.createVehicle.bind(vehicleController));
-app.get("/vehicles/:id", (req, res) => {
-  vehicleController.getVehicle(req, res);
-});
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  // Configura los middlewares
+  private middlewares(): void {
+    this.app.use(express.json());
+  }
+
+  // Configura las rutas
+  private routes(): void {
+    this.app.use("/api/clients", clientRoutes);
+    this.app.use("/api/vehicles", vehicleRoutes);
+  }
+
+  // Inicia el servidor
+  public start(): void {
+    this.app.listen(this.PORT, () =>
+      console.log(`Server running on http://localhost:${this.PORT}`)
+    );
+  }
+}
+
+// Crear una instancia del servidor y arrancarlo
+const server = new Server();
+server.start();

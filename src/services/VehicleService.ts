@@ -6,6 +6,7 @@ export class VehicleService {
   constructor(private vehicleRepository: IVehicleRepository) {}
 
   addVehicle(vehicle: IVehicle): IVehicle {
+    vehicle.id = Date.now().toString();
     return this.vehicleRepository.create(vehicle);
   }
 
