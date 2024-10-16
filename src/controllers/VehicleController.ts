@@ -1,4 +1,3 @@
-// src/controllers/VehicleController.ts
 import { VehicleService } from "../services/VehicleService";
 import { Request, Response } from "express";
 

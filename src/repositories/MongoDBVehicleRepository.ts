@@ -1,4 +1,3 @@
-// src/repositories/MongoDBVehicleRepository.ts
 import { IVehicleRepository } from "./interfaces/IVehicleRepository";
 import { IVehicle } from "../models/IVehicle";
 

@@ -1,4 +1,3 @@
-// src/routes/clientRoutes.ts
 import { Router, Request, Response } from "express";
 import { ClientController } from "../controllers/ClientController";
 import { ClientService } from "../services/ClientService";

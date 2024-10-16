@@ -1,4 +1,3 @@
-// src/repositories/interfaces/IVehicleRepository.ts
 import { IVehicle } from "../../models/IVehicle";
 
 export interface IVehicleRepository {

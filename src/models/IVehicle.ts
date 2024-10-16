@@ -1,4 +1,3 @@
-// src/models/IVehicle.ts
 export interface IVehicle {
   id: string;
   marca: string;

@@ -1,4 +1,3 @@
-// src/routes/vehicleRoutes.ts
 import { Router, Request, Response } from "express";
 import { VehicleController } from "../controllers/VehicleController";
 import { VehicleService } from "../services/VehicleService";

@@ -1,4 +1,3 @@
-// src/services/ClientService.ts
 import { IClient } from "../models/IClient";
 import { ClientRepository } from "../repositories/InMemoryClientRepository";
 

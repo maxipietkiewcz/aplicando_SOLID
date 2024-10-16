@@ -1,4 +1,3 @@
-// src/repositories/InMemoryClientRepository.ts
 import { IClient } from "../models/IClient";
 
 export interface ClientRepository {
